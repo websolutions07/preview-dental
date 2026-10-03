@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Website Preview</title>
 </head>
 <body>
-
-    <!-- ========================================== -->
-    YOUR WEBSITE CONTENT
-    <!-- ========================================== -->
 
     <!-- Clinic Main Title / Header -->
     <h1 class="clinic-name">Default Clinic Name</h1>
@@ -39,15 +36,11 @@
         </div>
     </div>
 
-
-    <!-- ========================================== -->
-    JAVASCRIPT TO MAKE IT DYNAMIC (Paste before </body>)
-    <!-- ========================================== -->
+    <!-- JavaScript to make everything dynamic -->
     <script>
       window.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         
-        // 1. Grab values from the URL link including social links
         const clinic = params.get('clinic');
         const address = params.get('address');
         const email = params.get('email');
@@ -58,7 +51,6 @@
         const dr2 = params.get('dr2');
         const dr3 = params.get('dr3');
         
-        // 2. Update Clinic Name & Page Title
         if (clinic) {
           document.querySelectorAll('.clinic-name, h1').forEach(el => {
             el.textContent = clinic;
@@ -66,14 +58,12 @@
           document.title = clinic + " - Website Preview";
         }
         
-        // 3. Update Location / Address
         if (address) {
           document.querySelectorAll('.clinic-address').forEach(el => {
             el.textContent = address;
           });
         }
 
-        // 4. Update Email
         if (email) {
           document.querySelectorAll('.clinic-email').forEach(el => {
             el.textContent = email;
@@ -81,7 +71,6 @@
           });
         }
 
-        // 5. Update Phone / Contact
         if (phone) {
           document.querySelectorAll('.clinic-phone').forEach(el => {
             el.textContent = phone;
@@ -89,35 +78,31 @@
           });
         }
 
-        // 6. Update LinkedIn Profile Link (and hide if empty)
         const linkedinContainer = document.getElementById('linkedin-link');
         if (linkedinContainer) {
           if (linkedin && linkedin.trim() !== "") {
             linkedinContainer.href = linkedin;
             linkedinContainer.style.display = 'inline';
           } else {
-            linkedinContainer.parentElement.style.display = 'none'; // Hides the whole line if missing
+            linkedinContainer.parentElement.style.display = 'none';
           }
         }
 
-        // 7. Update Instagram Profile Link (and hide if empty)
         const instagramContainer = document.getElementById('instagram-link');
         if (instagramContainer) {
           if (instagram && instagram.trim() !== "") {
             instagramContainer.href = instagram;
             instagramContainer.style.display = 'inline';
           } else {
-            instagramContainer.parentElement.style.display = 'none'; // Hides the whole line if missing
+            instagramContainer.parentElement.style.display = 'none';
           }
         }
 
-        // 8. Update Doctor 1
         if (dr1) {
           const doc1 = document.querySelector('.doctor-1-name');
           if (doc1) doc1.textContent = dr1;
         }
 
-        // 9. Update Doctor 2 (and hide card completely if empty)
         const doc2Card = document.getElementById('doctor-2-card');
         const doc2El = document.querySelector('.doctor-2-name');
         if (doc2Card) {
@@ -129,18 +114,4 @@
           }
         }
 
-        // 10. Update Doctor 3 (and hide card completely if empty)
-        const doc3Card = document.getElementById('doctor-3-card');
-        const doc3El = document.querySelector('.doctor-3-name');
-        if (doc3Card) {
-          if (dr3 && dr3.trim() !== "") {
-            if (doc3El) doc3El.textContent = dr3;
-            doc3Card.style.display = 'block';
-          } else {
-            doc3Card.style.display = 'none';
-          }
-        }
-      });
-    </script>
-</body>
-</html>
+        const doc3Card = document.getElementById('docto
